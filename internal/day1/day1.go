@@ -15,7 +15,6 @@ func Part2(in io.Reader) int {
 }
 
 func parseInput(in io.Reader) []int {
-
 	scanner := bufio.NewScanner(in)
 	scanner.Split(bufio.ScanLines)
 
@@ -53,10 +52,10 @@ func maxCalories(calories []int) int {
 }
 
 func topN(calories []int, n int) []int {
-	len := min(len(calories), n)
+	length := min(len(calories), n)
 
-	top := make([]int, len)
-	if len == 0 {
+	top := make([]int, length)
+	if length == 0 {
 		return top
 	}
 
