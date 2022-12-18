@@ -131,11 +131,57 @@ func Test_topN(t *testing.T) {
 }
 
 func TestPart1(t *testing.T) {
-	file, _ := os.ReadFile("testdata/in.dat")
-	assert.Equal(t, 70509, Part1(bytes.NewReader(file)))
+	type args struct {
+		file string
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "test input",
+			args: args{file: "testdata/test_in.dat"},
+			want: 24000,
+		},
+		{
+			name: "input",
+			args: args{file: "testdata/in.dat"},
+			want: 70509,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			file, _ := os.ReadFile(tt.args.file)
+			assert.Equal(t, tt.want, Part1(bytes.NewReader(file)))
+		})
+	}
 }
 
 func TestPart2(t *testing.T) {
-	file, _ := os.ReadFile("testdata/in.dat")
-	assert.Equal(t, 208567, Part2(bytes.NewReader(file)))
+	type args struct {
+		file string
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "test input",
+			args: args{file: "testdata/test_in.dat"},
+			want: 45000,
+		},
+		{
+			name: "input",
+			args: args{file: "testdata/in.dat"},
+			want: 208567,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			file, _ := os.ReadFile(tt.args.file)
+			assert.Equal(t, tt.want, Part2(bytes.NewReader(file)))
+		})
+	}
 }
